@@ -25,14 +25,27 @@ function App() {
       isCompleted: false,
     },
   ]);
+
+  function onTaskClick(taskId) {
+    const newTasks = tasks.map((task) => {
+      if (task.id == taskId) {
+        return { ...task, isCompleted: !task.isCompleted };
+      }
+
+      return task;
+    });
+
+    setTasks(newTasks);
+  }
+
   return (
     <div className="w-screm h-screen bg-slate-500 flex justify-center p-6">
       <div className="w-[500px]">
         <h1 className="text-3xl text-slate-100 font-bold text-center">
           Task Manager
         </h1>
-        <Tasks tasks={tasks} />
         <AddTask />
+        <Tasks tasks={tasks} onTaskClick={onTaskClick} />
       </div>
     </div>
   );
