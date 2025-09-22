@@ -12,7 +12,6 @@ function Tasks({ tasks, onDeleteTaskClick, onTaskClick }) {
             }`}
           >
             {task.title}
-            {task.isCompleted ? " complete" : " inconplete"}
           </button>
           <button className="bg-slate-400 p-2 rounded-nd text-white">
             <ChevronRightIcon />

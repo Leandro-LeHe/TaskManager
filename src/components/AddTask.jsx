@@ -21,6 +21,14 @@ function AddTask({ onAddTaskSubmit }) {
       />
       <button
         onClick={() => {
+          //verificar se os campos estão preenchidos
+          if (!title.trim() || !description.trim()) {
+            //return alert("Preencha o título e a descrição da tarefa.");
+
+            if (confirm("ok?")) {
+              console.log("ação para deletar");
+            }
+          }
           onAddTaskSubmit(title, description);
           setTitle("");
           setDescription("");
