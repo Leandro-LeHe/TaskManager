@@ -19,9 +19,10 @@ function AddTask({ onAddTaskSubmit }) {
         value={description}
         onChange={(event) => setDescription(event.target.value)}
       />
+
       <button
         onClick={() => {
-          //verificar se os campos estão preenchidos
+          //Verificar se os campos estão preenchidos
           if (!title.trim() || !description.trim()) {
             //return alert("Preencha o título e a descrição da tarefa.");
 
@@ -33,7 +34,8 @@ function AddTask({ onAddTaskSubmit }) {
           setTitle("");
           setDescription("");
         }}
-        className="bg-slate-500 text-white px-4 py-2 rounded-md font-medium"
+        className="bg-slate-500 text-white px-4 py-2 rounded-md font-medium hover:bg-slate-700 hover:text-white hover:shadow-lg
+             transition duration-100 hover:scale-102"
       >
         Add a task
       </button>

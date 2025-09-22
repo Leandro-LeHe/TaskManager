@@ -1,6 +1,15 @@
 import { ChevronRightIcon, Trash2 } from "Lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function Tasks({ tasks, onDeleteTaskClick, onTaskClick }) {
+  const navigate = useNavigate();
+
+  function onSeeDetailsClick(task) {
+    const query = new URLSearchParams();
+    query.set("title", task.title);
+    query.set("description", task.description);
+    navigate(`/task?title=${query.toString()}`);
+  }
   return (
     <ul className="space-y-4 p-6 bg-slate-200 rounded-md shadow">
       {tasks.map((task) => (
@@ -8,17 +17,22 @@ function Tasks({ tasks, onDeleteTaskClick, onTaskClick }) {
           <button
             onClick={() => onTaskClick(task.id)}
             className={`bg-slate-400 text-left w-full text-white p-2 rounded-md ${
-              Tasks.isCompleted && "line-through li"
+              Tasks.isCompleted && "line-through li "
             }`}
           >
             {task.title}
           </button>
-          <button className="bg-slate-400 p-2 rounded-nd text-white">
+          <button
+            onClick={() => onSeeDetailsClick(task)}
+            className="bg-slate-400 p-2 rounded-nd text-white hover:bg-slate-500 hover:text-white hover:shadow-lg
+             transition duration-300 hover:scale-102"
+          >
             <ChevronRightIcon />
           </button>
           <button
             onClick={() => onDeleteTaskClick(task.id)}
-            className="bg-slate-400 p-2 rounded-nd text-white"
+            className="bg-slate-400 p-2 rounded-nd text-white hover:bg-slate-500 hover:text-white hover:shadow-lg
+             transition duration-300 hover:scale-102"
           >
             <Trash2 color="#873b3b" />
           </button>
