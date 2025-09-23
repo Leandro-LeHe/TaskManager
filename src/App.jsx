@@ -1,32 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
 import Alert from "./components/Alert";
 
 function App() {
   const [isLoadding, setIsLoadding] = useState(false);
-  const [tasks, setTasks] = useState([
-    {
-      id: "1",
-      title: "learning math",
-      description: "LearningDev",
-      isCompleted: false,
-    },
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
 
-    {
-      id: "2",
-      title: "learning portuguese",
-      description: "LearningDev2",
-      isCompleted: false,
-    },
-
-    {
-      id: "3",
-      title: "learning english",
-      description: "LearningDev3",
-      isCompleted: false,
-    },
-  ]);
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   function onDeleteTaskClick(taskId) {
     if (confirm(`Deletar a task de id ${taskId} ?`)) {
