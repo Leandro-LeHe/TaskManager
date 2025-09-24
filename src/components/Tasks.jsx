@@ -1,4 +1,4 @@
-import { ChevronRightIcon, Trash2 } from "Lucide-react";
+import { CircleCheckBig, ChevronRightIcon, Trash2 } from "Lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function Tasks({ tasks, onDeleteTaskClick, onTaskClick }) {
@@ -16,10 +16,11 @@ function Tasks({ tasks, onDeleteTaskClick, onTaskClick }) {
         <li key={task.id} className="flex gap-2">
           <button
             onClick={() => onTaskClick(task.id)}
-            className={`bg-slate-400 text-left w-full text-white p-2 rounded-md ${
-              Tasks.isCompleted && "line-through li "
+            className={`bg-slate-400 text-left w-full flex itemd-center gap-2 text-white p-2 rounded-md ${
+              tasks.isCompleted && "line-through li "
             }`}
           >
+            {task.isCompleted && <CircleCheckBig color="#40b329" />}
             {task.title}
           </button>
           <button

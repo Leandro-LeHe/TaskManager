@@ -1,4 +1,4 @@
-function Alert({ color = "blue", title, message }) {
+function Alert({ color = "green", title, message }) {
   return (
     <div
       className={`
