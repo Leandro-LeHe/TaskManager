@@ -1,5 +1,5 @@
-import { CircleCheckBig, ChevronRightIcon, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Check from "./icons/Check";
 
 function Tasks({ tasks, onDeleteTaskClick, onTaskClick }) {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ function Tasks({ tasks, onDeleteTaskClick, onTaskClick }) {
               tasks.isCompleted && "line-through li "
             }`}
           >
-            {task.isCompleted && <CircleCheckBig color="#40b329" />}
+            {task.isCompleted && <Check />}
             {task.title}
           </button>
           <button
@@ -28,14 +28,44 @@ function Tasks({ tasks, onDeleteTaskClick, onTaskClick }) {
             className="bg-slate-400 p-2 rounded-nd text-white hover:bg-slate-500 hover:text-white hover:shadow-lg
              transition duration-300 hover:scale-102"
           >
-            <ChevronRightIcon />
+            <svg
+              className="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fillRule="evenodd"
+                d="M3 4a1 1 0 0 0-.822 1.57L6.632 12l-4.454 6.43A1 1 0 0 0 3 20h13.153a1 1 0 0 0 .822-.43l4.847-7a1 1 0 0 0 0-1.14l-4.847-7a1 1 0 0 0-.822-.43H3Z"
+                clipRule="evenodd"
+              />
+            </svg>
           </button>
           <button
             onClick={() => onDeleteTaskClick(task.id)}
             className="bg-slate-400 p-2 rounded-nd text-white hover:bg-slate-500 hover:text-white hover:shadow-lg
              transition duration-300 hover:scale-102"
           >
-            <Trash2 color="#873b3b" />
+            <svg
+              className="w-6 h-6 text-red-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"
+              />
+            </svg>
           </button>
         </li>
       ))}
