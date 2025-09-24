@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
 import Alert from "./components/Alert";
+import { alertService } from "./services/alertservices";
 
 function App() {
   const [isLoadding, setIsLoadding] = useState(false);
@@ -14,15 +15,27 @@ function App() {
   }, [tasks]);
 
   function onDeleteTaskClick(taskId) {
-    if (confirm(`Deletar a task de id ${taskId} ?`)) {
-      const newTasks = tasks.filter((task) => task.id !== taskId);
-      setTasks(newTasks);
+    // if (confirm(`Deletar a task de id ${taskId} ?`)) {
+    //   const newTasks = tasks.filter((task) => task.id !== taskId);
+    //   setTasks(newTasks);
 
-      alert("Registro deletado com sucesso");
-      return;
-    }
+    //   //alert("Registro deletado com sucesso");
+    //   alertService.success("Registro deletado com sucesso");
+    //   return;
+    // }
 
-    alert("Operação cancelada");
+    alertService.confirme().then((res) => {
+      if (res.isConfirmed) {
+        const newTasks = tasks.filter((task) => task.id !== taskId);
+        setTasks(newTasks);
+        alertService.success("Registro deletado com sucesso");
+      } else {
+        alertService.warning("Operação cancelada");
+      }
+    });
+
+    // alertService.info("Operação cancelada com sucesso");
+    // alert("Operação cancelada");
   }
 
   function onTaskClick(taskId) {
@@ -46,6 +59,8 @@ function App() {
       isCompleted: false,
     };
     setTasks([...tasks, newTask]);
+
+    alertService.success("Task adicionado com sucesso");
 
     setTimeout(() => {
       setIsLoadding(false);
