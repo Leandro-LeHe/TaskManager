@@ -1,4 +1,4 @@
-import { CircleCheckBig, ChevronRightIcon, Trash2 } from "Lucide-react";
+import { CircleCheckBig, ChevronRightIcon, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function Tasks({ tasks, onDeleteTaskClick, onTaskClick }) {
