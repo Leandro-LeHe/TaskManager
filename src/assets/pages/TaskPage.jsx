@@ -12,21 +12,23 @@ function TaskPage() {
           <button
             onClick={() => navigate(-1)}
             className="absolute left-9 top-8 button-0 text-slate-100 hover:bg-slate-700 hover:text-white hover:shadow-lg
-             transition duration-100 hover:scale-102"
+             transition duration-100 hover:scale-102 cursor-pointer"
           >
             <svg
-              className="w-6 h-6 text-gray-800 dark:text-white"
+              className="w-6 h-6 text-green-800 dark:text-white"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
-              fill="currentColor"
+              fill="none"
               viewBox="0 0 24 24"
             >
               <path
-                fillRule="evenodd"
-                d="M3 4a1 1 0 0 0-.822 1.57L6.632 12l-4.454 6.43A1 1 0 0 0 3 20h13.153a1 1 0 0 0 .822-.43l4.847-7a1 1 0 0 0 0-1.14l-4.847-7a1 1 0 0 0-.822-.43H3Z"
-                clipRule="evenodd"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m15 19-7-7 7-7"
               />
             </svg>
           </button>

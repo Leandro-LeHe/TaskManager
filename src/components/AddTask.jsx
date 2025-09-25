@@ -24,18 +24,18 @@ function AddTask({ onAddTaskSubmit }) {
         onClick={() => {
           //Verificar se os campos estão preenchidos
           if (!title.trim() || !description.trim()) {
-            //return alert("Preencha o título e a descrição da tarefa.");
+            return alert("Preencha o título e a descrição da tarefa!");
 
-            if (confirm("ok?")) {
-              console.log("ação para deletar");
-            }
+            // if (confirm("ok?")) {
+            //   console.log("ação para deletar");
+            // }
           }
           onAddTaskSubmit(title, description);
           setTitle("");
           setDescription("");
         }}
         className="bg-slate-500 text-white px-4 py-2 rounded-md font-medium hover:bg-slate-700 hover:text-white hover:shadow-lg
-             transition duration-100 hover:scale-102"
+             transition duration-100 hover:scale-102 cursor-pointer"
       >
         Add a task
       </button>

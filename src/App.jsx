@@ -15,15 +15,6 @@ function App() {
   }, [tasks]);
 
   function onDeleteTaskClick(taskId) {
-    // if (confirm(`Deletar a task de id ${taskId} ?`)) {
-    //   const newTasks = tasks.filter((task) => task.id !== taskId);
-    //   setTasks(newTasks);
-
-    //   //alert("Registro deletado com sucesso");
-    //   alertService.success("Registro deletado com sucesso");
-    //   return;
-    // }
-
     alertService.confirme().then((res) => {
       if (res.isConfirmed) {
         const newTasks = tasks.filter((task) => task.id !== taskId);
@@ -73,14 +64,6 @@ function App() {
         <h1 className="text-3xl text-slate-100 font-bold text-center">
           Task Manager
         </h1>
-
-        {isLoadding && (
-          <Alert
-            message={"Operação realizada com sucesso"}
-            color={"blue"}
-            title={"Tudo certo!"}
-          />
-        )}
 
         <AddTask onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks

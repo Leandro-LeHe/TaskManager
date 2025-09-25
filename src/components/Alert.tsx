@@ -12,4 +12,5 @@ function Alert({ color = "green", title, message }) {
     </div>
   );
 }
+
 export default Alert;

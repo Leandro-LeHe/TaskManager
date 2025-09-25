@@ -16,17 +16,18 @@ function Tasks({ tasks, onDeleteTaskClick, onTaskClick }) {
         <li key={task.id} className="flex gap-2">
           <button
             onClick={() => onTaskClick(task.id)}
-            className={`bg-slate-400 text-left w-full flex itemd-center gap-2 text-white p-2 rounded-md ${
-              tasks.isCompleted && "line-through li "
+            className={`bg-slate-400 text-left w-full flex items-center gap-2 text-white p-2 rounded-md cursor-pointer ${
+              task.isCompleted ? "line-through" : ""
             }`}
           >
             {task.isCompleted && <Check />}
             {task.title}
           </button>
+
           <button
             onClick={() => onSeeDetailsClick(task)}
             className="bg-slate-400 p-2 rounded-nd text-white hover:bg-slate-500 hover:text-white hover:shadow-lg
-             transition duration-300 hover:scale-102"
+             transition duration-300 hover:scale-102 cursor-pointer"
           >
             <svg
               className="w-6 h-6 text-gray-800 dark:text-white"
@@ -47,7 +48,7 @@ function Tasks({ tasks, onDeleteTaskClick, onTaskClick }) {
           <button
             onClick={() => onDeleteTaskClick(task.id)}
             className="bg-slate-400 p-2 rounded-nd text-white hover:bg-slate-500 hover:text-white hover:shadow-lg
-             transition duration-300 hover:scale-102"
+             transition duration-300 hover:scale-102 cursor-pointer"
           >
             <svg
               className="w-6 h-6 text-red-800"
